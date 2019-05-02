@@ -18,9 +18,14 @@ class Perceptron():
 		else:
 			output = 1
 		self.data = output
+	#for building
 	def add_child(self, obj):
 		for x in obj:
 			self.children.append(x)
+	#for changing inputs
+	def set_child(self, obj):
+		for i,x in enumerate(obj):
+			self.children[i] = x
 	def add_parent(self, obj):
 		for x in obj:
 			self.parent.append(x)
