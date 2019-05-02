@@ -9,6 +9,16 @@ def fileRead():
 		training_data.append(line.split(","))
 	return training_data 
 def createann():
+	ann = new Perceptron()
+	child1 = new Preceptron()
+	child2 = new Preceptron()
+	child3 = new Preceptron()
+	child4 = new Preceptron()
+	children = [child1, child2, child3, child4]
+	ann.addChildren(children)
+	initInput = [0,0,0,0]
+	for child in ann.children:
+		child.addChildren(initInput)
 	return ann
 def initAnn(ann):
 	ann.init_weights()
@@ -19,13 +29,13 @@ def bpa(ann irisDat):
 	#1. stopping criterion
 		#2. for each input
 			#3. input data into lowest level of ann and run ann
-			runAnn(ann, irisDat[x])			
+			output = runAnn(ann, irisDat[x])			
 			#4. calc error from output units
-			outError = ann.calcError()
+			outError = calcError(ann, irisDat[x])
 			#5. calc error from hidden units
 			hidError = []
 			for child in ann.children:
-				hidError.append(child.calcError)
+				hidError.append(calcErrorHidden(child, irisDat[x]))
 			#6. update weights
 			ann.updateWeights(outError)
 			for i,child in enumerate(ann.children):
