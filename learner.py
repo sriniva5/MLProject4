@@ -18,7 +18,11 @@ def fileRead():
 if __name__ == "__main__":
 	irisData = fileRead()
 
-	#initialize and set weights to the perceptron
+	#initialize the perceptron and set random weights
 	p = prc.Perceptron(irisData, 0.05)
 	p.init_weights()
-	print(p.weights)
+
+	#for each example determine if the output is greater or less than 0
+	for f in range(len(p.data)):
+		if p.compute_output(p.data[f][0], p.weights[f]) == -1:
+			p.set_weights(f)
