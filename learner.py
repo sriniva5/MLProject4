@@ -1,60 +1,24 @@
-import perceptron
+import perceptron as prc
+
+#Reads in the data file and returns an array of training examples
+#The training examples consist of tuples, where each tuple is a vector and target value
 def fileRead():
+	training_data = []
+
 	with open("iris.data", "r") as f:
 		lines = f.read().splitlines()
-		attributes = lines[0].split(",")[0:-1]
-		target_attribute = lines[0].split(",")[-1]
-	training_data = []
+
 	for line in lines[0:-1]:
-		training_data.append(line.split(","))
+		l = line.split(',')
+		training_data.append((l[0:4], l[4]))
+
+	#print(training_data)
 	return training_data
 
-def calcError(perceptron, data):
-	output = 0.0
-	for d in perceptron.children.data:
-		#D: data
-		for k in data:
-			#Outputs
-			output += (k - d)**2
-	return 0.5 * output
+if __name__ == "__main__":
+	irisData = fileRead()
 
-def createann():
-	ann = new Perceptron()
-	child1 = new Preceptron()
-	child2 = new Preceptron()
-	child3 = new Preceptron()
-	child4 = new Preceptron()
-	children = [child1, child2, child3, child4]
-	ann.addChildren(children)
-	initInput = [0,0,0,0]
-	for child in ann.children:
-		child.addChildren(initInput)
-	return ann
-def initAnn(ann):
-	ann.init_weights()
-	for child in ann.children
-		child.init_weights()
-	return ann
-def bpa(ann irisDat):
-	#1. stopping criterion
-		#2. for each input
-			#3. input data into lowest level of ann and run ann
-			output = runAnn(ann, irisDat[x])
-			#4. calc error from output units
-			outError = calcError(ann, irisDat[x])
-			#5. calc error from hidden units
-			hidError = []
-			for child in ann.children:
-				hidError.append(calcErrorHidden(child, irisDat[x]))
-			#6. update weights
-			ann.updateWeights(outError)
-			for i,child in enumerate(ann.children):
-				child.updateWeights(hidError[i])
-		#7. end for loop
-	#8. check stopping criterion
-	#9. return completed network
-def main():
-	irisDat = fileRead()
-	ann = createAnn()
-	ann = initAnn(ann)
-	bpa(ann, irisDat)
+	#initialize and set weights to the perceptron
+	p = prc.Perceptron(irisData, 0.05)
+	p.init_weights()
+	print(p.weights)
