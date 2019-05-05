@@ -15,24 +15,16 @@ class Perceptron():
 				example_weights.append(random.uniform(-0.05,0.05))
 			self.weights.append(example_weights)
 
-	def set_weights(self, index):
+	def set_weights(self, index, output):
 		#alter the weights for corresponding to the given training examples
-		print(self.weights[index])
 		for w in range(len(self.weights[index])):
-			self.weights[index][w] = self.weights[index][w] + (float(self.data[index][0][w]) * 1)
-		print(self.weights[index])
+			delta_w = self.learning_rate * (float(self.data[index][0][w]) - output) * float(self.data[index][0][w])
+			self.weights[index][w] = self.weights[index][w] + delta_w
+		#print(self.weights[index])
 
 	def compute_output(self, x_vector, w_vector):
         #calculate the summation of w and x values for an example
 		output = 0
 		for w in range(len(w_vector)):
 			output += (float(x_vector[w]) * w_vector[w])
-		if output > 0:
-			return 1
-		else:
-			return -1
-
-	def learn_perceptron(self):
-		for x in range(len(self.data)):
-            #compute output
-			return
+		return output
