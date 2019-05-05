@@ -7,7 +7,17 @@ def fileRead():
 	training_data = []
 	for line in lines[0:-1]:
 		training_data.append(line.split(","))
-	return training_data 
+	return training_data
+
+def calcError(perceptron, data):
+	output = 0.0
+	for d in perceptron.children.data:
+		#D: data
+		for k in data:
+			#Outputs
+			output += (k - d)**2
+	return 0.5 * output
+
 def createann():
 	ann = new Perceptron()
 	child1 = new Preceptron()
@@ -29,7 +39,7 @@ def bpa(ann irisDat):
 	#1. stopping criterion
 		#2. for each input
 			#3. input data into lowest level of ann and run ann
-			output = runAnn(ann, irisDat[x])			
+			output = runAnn(ann, irisDat[x])
 			#4. calc error from output units
 			outError = calcError(ann, irisDat[x])
 			#5. calc error from hidden units
