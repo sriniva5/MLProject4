@@ -20,13 +20,13 @@ class Perceptron():
 			self.weights.append(example_weights)
 
 	def set_weights(self, index, output):
-		#alter the weights for corresponding to the given training examples
+		#alter the weights corresponding to the given training examples
 		for w in range(len(self.weights[index])):
 			delta_w = self.learning_rate * (float(self.data[index][1]) - output) * float(self.data[index][0][w])
 			self.weights[index][w] = self.weights[index][w] + delta_w
+		#increment errors
 		if output != self.data[index][1]:
 			self.errors += 1
-		self.epoch += 1
 
 	def compute_output(self, x_vector, w_vector):
         #calculate the summation of w and x values for an example

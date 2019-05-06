@@ -1,4 +1,5 @@
 import perceptron as prc
+import sys
 
 #Reads in the data file and returns an array of training examples
 #The training examples consist of tuples, where each tuple is a vector and target value
@@ -21,9 +22,11 @@ def fileRead(target):
 if __name__ == "__main__":
 	#read data file and mark corresponding target with 1
 	#Target values: "Iris-setosa", "Iris-versicolor", "Iris-virginica"
-	irisData = fileRead("Iris-setosa")
+	target_val = sys.argv[1]
+	irisData = fileRead(target_val)
 
 	#initialize the perceptron and set random weights
+	#initialize error list
 	p = prc.Perceptron(irisData, 0.05)
 	p.init_weights([0.0,0.0,0.0,0.0])
 
@@ -33,7 +36,7 @@ if __name__ == "__main__":
 		for f in range(len(p.data)):
 			output = p.compute_output(p.data[f][0], p.weights[f])
 			p.set_weights(f,output)
-			
+
 		if p.errors == 0:
 			break
 		p.errors = 0
