@@ -25,9 +25,14 @@ if __name__ == "__main__":
 
 	#initialize the perceptron and set random weights
 	p = prc.Perceptron(irisData, 0.05)
-	p.init_weights()
+	p.init_weights([0.0,0.0,0.0,0.0])
 
-	#for each example alter the weights based on the classification
-	for f in range(len(p.data)):
-		output = p.compute_output(p.data[f][0], p.weights[f])
-		p.set_weights(f,output)
+	#Repeat process until errors are minimized
+	while True:
+		#for each example alter the weights based on the classification
+		for f in range(len(p.data)):
+			output = p.compute_output(p.data[f][0], p.weights[f])
+			p.set_weights(f,output)
+		if p.errors == 0:
+			break
+		p.errors = 0
