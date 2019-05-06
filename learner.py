@@ -24,19 +24,26 @@ if __name__ == "__main__":
 	#Target values: "Iris-setosa", "Iris-versicolor", "Iris-virginica"
 	target_val = sys.argv[1]
 	irisData = fileRead(target_val)
-
+	pre_error = 151
+	sys.stdout = open("output.txt", "w")
 	#initialize the perceptron and set random weights
 	#initialize error list
 	p = prc.Perceptron(irisData, 0.05)
-	p.init_weights([0.0,0.0,0.0,0.0])
-
+	p.init_weights([0.0,0.0,0.0,0.0,0.0])
+	
 	#Repeat process until errors are minimized
 	while True:
 		#for each example alter the weights based on the classification
 		for f in range(len(p.data)):
-			output = p.compute_output(p.data[f][0], p.weights[f])
-			p.set_weights(f,output)
-
+			#print(p.weights)
+			output = p.compute_output(p.data[f][0], p.weights)
+			#print(output)
+			p.set_weights(f, output)
+		p.epoch +=1
+		print(p.epoch,",",p.errors,",",p.weights,'\n')
 		if p.errors == 0:
 			break
+#		elif pre_error <= p.errors:
+#			break
+		pre_error = p.errors
 		p.errors = 0
