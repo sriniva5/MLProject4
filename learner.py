@@ -33,6 +33,7 @@ if __name__ == "__main__":
 		for f in range(len(p.data)):
 			output = p.compute_output(p.data[f][0], p.weights[f])
 			p.set_weights(f,output)
+			
 		if p.errors == 0:
 			break
 		p.errors = 0
