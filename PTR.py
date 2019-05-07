@@ -31,6 +31,10 @@ if __name__ == "__main__":
 	p = prc.Perceptron(irisData, 0.05)
 	p.init_weights([0.0,0.0,0.0,0.0,0.0])
 	
+	# variables for window of epochs
+	preErrorsInWindow = 151
+	errorsInWindow = 0
+	
 	#Repeat process until errors are minimized
 	while True:
 		#for each example alter the weights based on the classification
@@ -39,11 +43,16 @@ if __name__ == "__main__":
 			output = p.compute_output(p.data[f][0], p.weights)
 			#print(output)
 			p.set_weights(f, output)
-		p.epoch +=1
+		p.epoch += 1
+		errorsInWindow += p.errors
 		print(p.epoch,",",p.errors,",",p.weights,'\n')
+		for i,weight in enumerate(p.weights):
+			prevWeights[i]+=float(weight)
 		if p.errors == 0:
 			break
-#		elif pre_error <= p.errors:
-#			break
-		pre_error = p.errors
+		if p.epoch%10 == 0 and preErrorsInWindow <= errorsInWindow:
+			break
+		elif p.epoch%10 == 0:
+			preErrorsInWindow = errorsInWindow
+			errorsInWindow = 0
 		p.errors = 0
