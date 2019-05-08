@@ -22,4 +22,4 @@ if __name__ == "__main__":
 	irisData = fileRead()
 	irisData = random.sample(irisData, len(irisData))
 	for dataline in irisData:
-		print(dataline[0],",",dataline[1],",",dataline[2],",",dataline[3],",",dataline[4])
+		print(dataline[0],",",dataline[1],",",dataline[2],",",dataline[3],",",dataline[4],sep="")
