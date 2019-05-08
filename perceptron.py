@@ -8,18 +8,15 @@ class Perceptron():
 		self.epoch = 0
 		self.errors = 0
 
+	def shuffle_data(self):
+		#Return a shuffled dataset
+		self.data = random.sample(self.data, len(self.data))
+
 	def init_weights(self, value):
 		#value is an array of initial values
 		#for each of the 3 LPs initialize the weight vectors to 0s
 		if len(self.data)==0:
 			return
-	#	for x in range(len(self.data)):
-	#		example_weights = []
-	#		for y in range(len(self.data[x][0])):
-	#			example_weights = value
-	#		self.weights.append(example_weights)
-
-	#dont need 150*4 weights, just 4
 		for x in value:
 			self.weights.append(x)
 
