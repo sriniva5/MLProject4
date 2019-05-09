@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from scipy import stats
 
 if __name__ == "__main__":
     file = "./weight0/setosa0.txt"
@@ -8,8 +9,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -22,8 +26,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -36,8 +43,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -50,8 +60,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -64,8 +77,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -78,8 +94,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -92,8 +111,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -106,8 +128,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -120,8 +145,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -134,8 +162,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -148,8 +179,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -162,8 +196,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -176,8 +213,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -190,8 +230,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -204,8 +247,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -218,8 +264,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -232,8 +281,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
@@ -246,8 +298,11 @@ if __name__ == "__main__":
 
     data = pd.read_csv(file, sep=",", header=None)
     data.columns = ["epoch", "errors", "w0", "w1", "w2", "w3", "w4"]
+    slope, intercept, r_value, p_value, std_err = stats.linregress(data['epoch'], data['errors'])
+    bf = (data['epoch'].values)*slope + intercept
 
     plt.plot(data['epoch'].values, data['errors'].values, 'ro')
+    plt.plot(data['epoch'].values, bf)
     plt.xlabel('Epoch #')
     plt.ylabel('# of Errors in Learning')
     plt.title('Number of Learning Errors made per Epoch (' + type + ', ' + weight_type + ')')
