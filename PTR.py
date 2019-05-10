@@ -1,4 +1,5 @@
 import perceptron as prc
+import random
 import sys
 
 #Reads in the data file and returns an array of training examples
@@ -24,13 +25,20 @@ if __name__ == "__main__":
 	#Target values: "Iris-setosa", "Iris-versicolor", "Iris-virginica"
     file_val = sys.argv[1]
 	target_val = sys.argv[2]
+    weight_option = sys.argv[3]
 	irisData = fileRead(file_val, target_val)
 	pre_error = 151
 	sys.stdout = open("output.txt", "w")
 	#initialize the perceptron and set random weights
 	#initialize error list
 	p = prc.Perceptron(irisData, 0.05)
-	p.init_weights([0.0,0.0,0.0,0.0,0.0])
+    
+    if weight_option == 0:
+        p.init_weights([0.0,0.0,0.0,0.0,0.0])
+    elif weight_option == 1:
+        p.init_weights([1.0,1.0,1.0,1.0,1.0])
+    elif weight_option == "r":
+    p.init_weights[random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1)])
 	
 	# variables for window of epochs
 	preErrorsInWindow = 151
