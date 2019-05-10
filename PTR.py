@@ -3,10 +3,10 @@ import sys
 
 #Reads in the data file and returns an array of training examples
 #The training examples consist of tuples, where each tuple is a vector and target value
-def fileRead(target):
+def fileRead(file, target):
 	training_data = []
 
-	with open("iris.data", "r") as f:
+	with open(file, "r") as f:
 		lines = f.read().splitlines()
 
 	for line in lines[0:-1]:
@@ -22,8 +22,9 @@ def fileRead(target):
 if __name__ == "__main__":
 	#read data file and mark corresponding target with 1
 	#Target values: "Iris-setosa", "Iris-versicolor", "Iris-virginica"
-	target_val = sys.argv[1]
-	irisData = fileRead(target_val)
+    file_val = sys.argv[1]
+	target_val = sys.argv[2]
+	irisData = fileRead(file_val, target_val)
 	pre_error = 151
 	sys.stdout = open("output.txt", "w")
 	#initialize the perceptron and set random weights
