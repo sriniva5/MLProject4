@@ -33,14 +33,16 @@ if __name__ == "__main__":
 	#initialize the perceptron and set random weights
 	#initialize error list
 	p = prc.Perceptron(irisData, 0.05)
-	p.init_weights([0.0,0.0,0.0,0.0,0.0])
+	#p.init_weights([0.0,0.0,0.0,0.0,0.0])
 
 	if weight_option == 0:
-		p.init_weights([0.0,0.0,0.0,0.0,0.0])
+		w = [0.0,0.0,0.0,0.0,0.0]
 	elif weight_option == 1:
-		p.init_weights([1.0,1.0,1.0,1.0,1.0])
-	elif weight_option == "r":
-		p.init_weights([random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1)])
+		w = [1.0,1.0,1.0,1.0,1.0]
+	else:
+		w = [random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1)]
+
+	p.init_weights(w)
 
 	# variables for window of epochs
 	preErrorsInWindow = 151
