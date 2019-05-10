@@ -23,27 +23,29 @@ def fileRead(file, target):
 if __name__ == "__main__":
 	#read data file and mark corresponding target with 1
 	#Target values: "Iris-setosa", "Iris-versicolor", "Iris-virginica"
-    file_val = sys.argv[1]
+	file_val = sys.argv[1]
 	target_val = sys.argv[2]
-    weight_option = sys.argv[3]
+	weight_option = sys.argv[3]
+
 	irisData = fileRead(file_val, target_val)
 	pre_error = 151
 	sys.stdout = open("output.txt", "w")
 	#initialize the perceptron and set random weights
 	#initialize error list
 	p = prc.Perceptron(irisData, 0.05)
-    
-    if weight_option == 0:
-        p.init_weights([0.0,0.0,0.0,0.0,0.0])
-    elif weight_option == 1:
-        p.init_weights([1.0,1.0,1.0,1.0,1.0])
-    elif weight_option == "r":
-    p.init_weights[random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1)])
-	
+	p.init_weights([0.0,0.0,0.0,0.0,0.0])
+
+	if weight_option == 0:
+		p.init_weights([0.0,0.0,0.0,0.0,0.0])
+	elif weight_option == 1:
+		p.init_weights([1.0,1.0,1.0,1.0,1.0])
+	elif weight_option == "r":
+		p.init_weights([random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1)])
+
 	# variables for window of epochs
 	preErrorsInWindow = 151
 	errorsInWindow = 0
-	
+
 	#Repeat process until errors are minimized
 	while True:
 		#for each example alter the weights based on the classification
@@ -55,8 +57,8 @@ if __name__ == "__main__":
 		p.epoch += 1
 		errorsInWindow += p.errors
 		print(p.epoch,",",p.errors,",",p.weights,'\n')
-		for i,weight in enumerate(p.weights):
-			prevWeights[i]+=float(weight)
+		# for i,weight in enumerate(p.weights):
+		# 	prevWeights[i]+=float(weight)
 		if p.errors == 0:
 			break
 		if p.epoch%10 == 0 and preErrorsInWindow <= errorsInWindow:
