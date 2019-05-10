@@ -1,34 +1,40 @@
 import random
+
 class Perceptron():
-	def __init__(self):
-		self.data = NULL
-		self.children = []
-		self.parent = []
-		self.child_weights = []
-	def printNice(self, level=0):
-		print("\t"*level+self.data)
-		for child in self.children:
-			child.printNice(level+1)
-	def calc_output(self):
-		output = self.child_weights[0]
-		for i, x in enumerate(children):
-			output+=x.data*self.child_weights[i]
-		if output <= 0:
-			output = 0
-		else:
-			output = 1
-		self.data = output
-	def add_child(self, obj):
-		for x in obj:
-			self.children.append(x)
-	def add_parent(self, obj):
-		for x in obj:
-			self.parent.append(x)
-	def set_weights(self, weights):
-		self.child_weights = weights.copy()
-	def init_weights(self):
-		if len(children)<=0:
+	def __init__(self, input, learning_rate=0.05):
+		self.data = input
+		self.learning_rate = learning_rate
+		self.weights = []
+		self.epoch = 0
+		self.errors = 0
+
+	def init_weights(self, value):
+		#value is an array of initial values
+		#for each of the 3 LPs initialize the weight vectors to 0s
+		if len(self.data)==0:
 			return
-		for x in range(len(children)+1):
-			self.child_weights.apend(0)
-			#self.child_weights.append(random.range(-0.05,0.05))
+		for x in value:
+			self.weights.append(x)
+
+	def set_weights(self, index, output):
+		#alter the weights corresponding to the given training examples
+		delta_w = self.learning_rate * (float(self.data[index][1]) - output) * 1
+		self.weights[0] = self.weights[0] + delta_w
+		for w in range(len(self.weights)-1):
+			inp = self.data[index][0]
+			xi = float(inp[w])
+			delta_w = self.learning_rate * (float(self.data[index][1]) - output) * xi
+			self.weights[w+1] = self.weights[w+1] + delta_w
+		#increment errors
+		if output != self.data[index][1]:
+			self.errors += 1
+
+	def compute_output(self, x_vector, w_vector):
+        #calculate the summation of w and x values for an example
+		output = 0
+		for w in range(len(w_vector)-1):
+			output += (float(x_vector[w]) * w_vector[w+1])
+		if output > 0:
+			return 1
+		else:
+			return -1
